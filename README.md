@@ -26,9 +26,9 @@ tokenizer = AutoTokenizer.from_pretrained(
 )
 
 nlp = pipeline(
-        model="impira/layoutlm-document-qa",
-        tokenizer=tokenizer,
-        trust_remote_code=True,
+    model="impira/layoutlm-document-qa",
+    tokenizer=tokenizer,
+    trust_remote_code=True,
 )
 
 nlp(
