@@ -1,4 +1,4 @@
-# NOTE: This code is currently under review for inclusion in the main 
+# NOTE: This code is currently under review for inclusion in the main
 # huggingface/transformers repository:
 # https://github.com/huggingface/transformers/pull/18414
 from typing import List, Optional, Tuple, Union
@@ -189,7 +189,9 @@ class DocumentQuestionAnsweringPipeline(Pipeline):
             - **answer** (`str`) -- The answer to the question.
         """
         if isinstance(question, str):
-            inputs = {"question": question, "image": image, "word_boxes": word_boxes}
+            inputs = {"question": question, "image": image}
+            if word_boxes is not None:
+                inputs["word_boxes"] = word_boxes
         else:
             inputs = image
         return super().__call__(inputs, **kwargs)

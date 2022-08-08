@@ -1,4 +1,4 @@
-# NOTE: This code is currently under review for inclusion in the main 
+# NOTE: This code is currently under review for inclusion in the main
 # huggingface/transformers repository:
 # https://github.com/huggingface/transformers/pull/18414
 
@@ -15,6 +15,7 @@ if is_vision_available():
     from PIL import Image
 
     from transformers.image_utils import load_image
+
     VISION_LOADED = True
 else:
     Image = None
@@ -24,9 +25,11 @@ else:
 TESSERACT_LOADED = False
 if is_pytesseract_available():
     import pytesseract
+
     TESSERACT_LOADED = True
 else:
     pytesseract = None
+
 
 def decode_spans(
     start: np.ndarray, end: np.ndarray, topk: int, max_answer_len: int, undesired_tokens: np.ndarray
