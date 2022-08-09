@@ -221,7 +221,7 @@ class DocumentQuestionAnsweringPipeline(Pipeline):
 
         image = None
         image_features = {}
-        if "image" in input:
+        if input.get("image", None) is not None:
             if not VISION_LOADED:
                 raise ValueError(
                     "If you provide an image, then the pipeline will run process it with PIL (Pillow), but"
