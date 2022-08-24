@@ -3,10 +3,6 @@
   "architectures": [
     "LayoutLMForQuestionAnswering"
   ],
-  "auto_map": {
-    "AutoConfig": "configuration_layoutlm.LayoutLMConfig",
-    "AutoModelForQuestionAnswering": "modeling_layoutlm.LayoutLMForQuestionAnswering"
-  },
   "custom_pipelines": {
     "document-question-answering": {
       "impl": "pipeline_document_question_answering.DocumentQuestionAnsweringPipeline",
