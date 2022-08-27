@@ -1,48 +1,57 @@
 ---
+language: en
+thumbnail: https://uploads-ssl.webflow.com/5e3898dff507782a6580d710/614a23fcd8d4f7434c765ab9_logo.png
 license: mit
-tags:
-- generated_from_keras_callback
-model-index:
-- name: layoutlm-document-qa
-  results: []
 ---
 
-<!-- This model card has been generated automatically according to the information Keras had access to. You should
-probably proofread and complete it, then remove this comment. -->
+# LayoutLM for Visual Question Answering
 
-# layoutlm-document-qa
+This is a fine-tuned version of the multi-modal [LayoutLM](https://aka.ms/layoutlm) model for the task of question answering on documents. It has been fine-tuned on
 
-This model is a fine-tuned version of [impira/layoutlm-document-qa](https://huggingface.co/impira/layoutlm-document-qa) on an unknown dataset.
-It achieves the following results on the evaluation set:
+## Model details
 
+The LayoutLM model was developed at Microsoft ([paper](https://arxiv.org/abs/1912.13318)) as a general purpose tool for understanding documents. This model is a fine-tuned checkpoint of [LayoutLM-Base-Cased](https://huggingface.co/microsoft/layoutlm-base-uncased), using both the [SQuAD2.0](https://huggingface.co/datasets/squad_v2) and [DocVQA](https://www.docvqa.org/) datasets.
 
-## Model description
+## Getting started with the model
 
-More information needed
+To run these examples, you must have [PIL](https://pillow.readthedocs.io/en/stable/installation.html), [pytesseract](https://pypi.org/project/pytesseract/), and [PyTorch](https://pytorch.org/get-started/locally/) installed in addition to [transformers](https://huggingface.co/docs/transformers/index).
 
-## Intended uses & limitations
+```python
+from transformers import AutoTokenizer, pipeline
 
-More information needed
+tokenizer = AutoTokenizer.from_pretrained(
+    "impira/layoutlm-document-qa",
+    add_prefix_space=True,
+    trust_remote_code=True,
+)
 
-## Training and evaluation data
+nlp = pipeline(
+    model="impira/layoutlm-document-qa",
+    tokenizer=tokenizer,
+    trust_remote_code=True,
+)
 
-More information needed
+nlp(
+    "https://templates.invoicehome.com/invoice-template-us-neat-750px.png",
+    "What is the invoice number?"
+)
+# {'score': 0.9943977, 'answer': 'us-001', 'start': 15, 'end': 15}
 
-## Training procedure
+nlp(
+    "https://miro.medium.com/max/787/1*iECQRIiOGTmEFLdWkVIH2g.jpeg",
+    "What is the purchase amount?"
+)
+# {'score': 0.9912159, 'answer': '$1,000,000,000', 'start': 97, 'end': 97}
 
-### Training hyperparameters
+nlp(
+    "https://www.accountingcoach.com/wp-content/uploads/2013/10/income-statement-example@2x.png",
+    "What are the 2020 net sales?"
+)
+# {'score': 0.59147286, 'answer': '$ 3,750', 'start': 19, 'end': 20}
+```
 
-The following hyperparameters were used during training:
-- optimizer: None
-- training_precision: float32
+**NOTE**: This model relies on a [model definition](https://github.com/huggingface/transformers/pull/18407) and [pipeline](https://github.com/huggingface/transformers/pull/18414) that are currently in review to be included in the transformers project. In the meantime, you'll have to use the `trust_remote_code=True` flag to run this model.
 
-### Training results
+## About us
 
-
-
-### Framework versions
-
-- Transformers 4.22.0.dev0
-- TensorFlow 2.9.2
-- Datasets 2.4.0
-- Tokenizers 0.12.1
+This model was created by the team at [Impira](https://www.impira.com/).
