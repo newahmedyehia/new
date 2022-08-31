@@ -18,7 +18,6 @@ from transformers import AutoTokenizer, pipeline
 tokenizer = AutoTokenizer.from_pretrained(
     "impira/layoutlm-document-qa",
     add_prefix_space=True,
-    trust_remote_code=True,
 )
 
 nlp = pipeline(
