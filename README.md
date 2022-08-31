@@ -46,8 +46,13 @@ nlp(
 # {'score': 0.59147286, 'answer': '$ 3,750', 'start': 19, 'end': 20}
 ```
 
-**NOTE**: This model was recently landed in transformers via [PR #18407](https://github.com/huggingface/transformers/pull/18407), so you'll need to use a recent version of transformers (e.g. `pip install git+https://github.com/huggingface/transformers.git@5c4c869014f5839d04c1fd28133045df0c91fd84`).
-The [pipeline](https://github.com/huggingface/transformers/pull/18414) is currently in review to be included in the transformers project. In the meantime, you'll have to use the `trust_remote_code=True` flag to run the pipeline.
+**NOTE**: This model was recently landed in transformers via [PR #18407](https://github.com/huggingface/transformers/pull/18407), so you'll need to use a recent version of transformers, for example:
+
+```bash
+$ pip install git+https://github.com/huggingface/transformers.git@5c4c869014f5839d04c1fd28133045df0c91fd84
+```
+
+The pipeline is currently in review ([PR #18414](https://github.com/huggingface/transformers/pull/18414)). In the meantime, you'll have to use the `trust_remote_code=True` flag to run it.
 
 ## About us
 
