@@ -6,11 +6,7 @@ license: mit
 
 # LayoutLM for Visual Question Answering
 
-This is a fine-tuned version of the multi-modal [LayoutLM](https://aka.ms/layoutlm) model for the task of question answering on documents. It has been fine-tuned on
-
-## Model details
-
-The LayoutLM model was developed at Microsoft ([paper](https://arxiv.org/abs/1912.13318)) as a general purpose tool for understanding documents. This model is a fine-tuned checkpoint of [LayoutLM-Base-Cased](https://huggingface.co/microsoft/layoutlm-base-uncased), using both the [SQuAD2.0](https://huggingface.co/datasets/squad_v2) and [DocVQA](https://www.docvqa.org/) datasets.
+This is a fine-tuned version of the multi-modal [LayoutLM](https://aka.ms/layoutlm) model for the task of question answering on documents. It has been fine-tuned using both the [SQuAD2.0](https://huggingface.co/datasets/squad_v2) and [DocVQA](https://www.docvqa.org/) datasets.
 
 ## Getting started with the model
 
@@ -50,7 +46,8 @@ nlp(
 # {'score': 0.59147286, 'answer': '$ 3,750', 'start': 19, 'end': 20}
 ```
 
-**NOTE**: This model relies on a [model definition](https://github.com/huggingface/transformers/pull/18407) and [pipeline](https://github.com/huggingface/transformers/pull/18414) that are currently in review to be included in the transformers project. In the meantime, you'll have to use the `trust_remote_code=True` flag to run this model.
+**NOTE**: This model was recently landed in transformers via [PR #18407](https://github.com/huggingface/transformers/pull/18407), so you'll need to use a recent version of transformers (e.g. `pip install git+https://github.com/huggingface/transformers.git@5c4c869014f5839d04c1fd28133045df0c91fd84`).
+The [pipeline](https://github.com/huggingface/transformers/pull/18414) is currently in review to be included in the transformers project. In the meantime, you'll have to use the `trust_remote_code=True` flag to run the pipeline.
 
 ## About us
 
