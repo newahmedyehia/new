@@ -1,7 +1,10 @@
 ---
 language: en
-thumbnail: https://uploads-ssl.webflow.com/5e3898dff507782a6580d710/614a23fcd8d4f7434c765ab9_logo.png
 license: mit
+tags:
+ - layoutlm
+ - document-question-answering
+ - pdf
 ---
 
 # LayoutLM for Visual Question Answering
