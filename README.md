@@ -51,7 +51,7 @@ nlp(
 **NOTE**: This model was recently landed in transformers via [PR #18407](https://github.com/huggingface/transformers/pull/18407), so you'll need to use a recent version of transformers, for example:
 
 ```bash
-$ pip install git+https://github.com/huggingface/transformers.git@5c4c869014f5839d04c1fd28133045df0c91fd84
+pip install git+https://github.com/huggingface/transformers.git@5c4c869014f5839d04c1fd28133045df0c91fd84
 ```
 
 The pipeline is currently in review ([PR #18414](https://github.com/huggingface/transformers/pull/18414)). In the meantime, you'll have to use the `trust_remote_code=True` flag to run it.
