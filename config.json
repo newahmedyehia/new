@@ -6,12 +6,6 @@
   "attention_probs_dropout_prob": 0.1,
   "bos_token_id": 0,
   "classifier_dropout": null,
-  "custom_pipelines": {
-    "document-question-answering": {
-      "impl": "pipeline_document_question_answering.DocumentQuestionAnsweringPipeline",
-      "pt": "AutoModelForQuestionAnswering"
-    }
-  },
   "eos_token_id": 2,
   "gradient_checkpointing": false,
   "hidden_act": "gelu",
