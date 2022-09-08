@@ -16,16 +16,11 @@ This is a fine-tuned version of the multi-modal [LayoutLM](https://aka.ms/layout
 To run these examples, you must have [PIL](https://pillow.readthedocs.io/en/stable/installation.html), [pytesseract](https://pypi.org/project/pytesseract/), and [PyTorch](https://pytorch.org/get-started/locally/) installed in addition to [transformers](https://huggingface.co/docs/transformers/index).
 
 ```python
-from transformers import AutoTokenizer, pipeline
-
-tokenizer = AutoTokenizer.from_pretrained(
-    "impira/layoutlm-document-qa",
-    add_prefix_space=True,
-)
+from transformers import pipeline
 
 nlp = pipeline(
+    "document-question-answering",
     model="impira/layoutlm-document-qa",
-    tokenizer=tokenizer,
 )
 
 nlp(
