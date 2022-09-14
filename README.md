@@ -1,6 +1,7 @@
 ---
 language: en
 license: mit
+pipeline_tag: document-question-answering
 tags:
  - layoutlm
  - document-question-answering
